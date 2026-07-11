@@ -52,11 +52,9 @@ Every track — the roadmap, CV-building, interview-prep — fully complete, not
 | `border`       | `#1F2421`   | Default border colour            |
 | `text`         | `#F3F6F4`   | Primary text                     |
 | `muted`        | `#8A938E`   | Secondary/meta text               |
-| Font (display) | Google Sans* | Headings                         |
-| Font (body)    | Google Sans* | Body copy                        |
+| Font (display) | Google Sans (self-hosted) | Headings           |
+| Font (body)    | Google Sans (self-hosted) | Body copy          |
 | Font (mono)    | JetBrains Mono | Code, task IDs, meta labels    |
-
-*See Context Hooks — Google Sans is not a licensed public webfont; a verified free substitute must be confirmed at build time.
 
 ---
 
@@ -120,7 +118,7 @@ What's next (in spirit, not tasks):
 
 ## Context Hooks (for Claude)
 
-- Google Sans is Google's internal product font, not freely licensed for web embedding — must verify at build time whether "Google Sans Text" or another Google Fonts–hosted near-equivalent is actually available before hardcoding it; flag to Fahim if a substitute is needed instead of silently picking one
+- Google Sans is self-hosted via actual font files Fahim supplied (SIL OFL 1.1 licensed, static + variable weights) — loaded via `next/font/local`, same pattern as the Bengali font on Bindu. Not a Google Fonts CDN reference. No substitute needed — this is resolved, not a flag.
 - This project's palette and academic tone deliberately mirror learnBEE/LearnDE — treat those two projects as sibling references for tone and dashboard patterns, not the SaaS/tooling dark-purple line (Formify, Blacksmith)
 - The original 16-week markdown roadmap (Phases 0–4) is the seed content for the curriculum data — do not regenerate it from scratch, adapt/expand it into the site's data model
 - CGPA and education fields are sensitive-ish personal data — treat with normal data-handling care in schema design, not just decoration
