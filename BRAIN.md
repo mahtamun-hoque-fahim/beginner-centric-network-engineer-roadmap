@@ -34,6 +34,12 @@ Every track — the roadmap, CV-building, interview-prep — fully complete, not
 - [LOCKED] CV-building + interview-prep track unlocks as a separate track after full roadmap completion
 - [LOCKED] Scenario/job-framing content style carries over from the original markdown roadmap — never rewritten into academic/lecture tone
 - [LOCKED] Visual system inherited from Fahim's personal-website DESIGN_GUIDE.md (academic-line palette), with Google Sans requested as the display/body font — see Context Hooks for a font-availability flag
+- [LOCKED] Primary audience framing resolved (Council PRE-BUILD, General): CSE students are the primary voice/copy target — content is written speaking to them first — but access and usability are never gated to CS backgrounds; anyone can use the full site
+- [LOCKED] Signup friction reduced (Council PRE-BUILD, Wizard): anonymous users can check off tasks and track progress client-side (localStorage) before ever signing up; signup is prompted at a natural "save your progress across devices" moment, not upfront
+- [LOCKED] CV and interview-prep tracks get partial/teaser visibility before full roadmap completion (Council PRE-BUILD, Wizard) — not fully invisible until 100% done; full unlock still requires roadmap completion, but a preview state exists earlier
+- [LOCKED] Admin auth uses a real `role` field on the user table, not a hardcoded email check (Council PRE-BUILD, Architect) — `/admin/*` data fetching is server-only, never leaked into client bundles
+- [LOCKED] Rate limiting via Upstash Redis on signup/login routes from day one (Council PRE-BUILD, Architect) — same pattern as other Fahim projects
+- [LOCKED] Schema left flexible for a future `tier` field (Council PRE-BUILD, Coin-master) — no payment infra built now, but monetization-ready structure like Formify's approach
 
 ---
 
@@ -101,6 +107,7 @@ What's next (in spirit, not tasks):
 | Auth | Better Auth |
 | Deployment | Vercel (primary) + Cloudflare Workers (secondary), Edge Runtime throughout |
 | Email | Resend (if needed for auth flows) |
+| Rate limiting | Upstash Redis (signup/login routes) |
 | Repo | github.com/mahtamun-hoque-fahim/beginner-centric-network-engineer-roadmap |
 
 ---

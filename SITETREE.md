@@ -33,8 +33,8 @@
 | /signup | page | public | Sign up — collects country, education status, university, dept, CGPA | / | planned |
 | /dashboard | page | authenticated | Personal progress overview, current phase, streak | / | planned |
 | /dashboard/roadmap | page | authenticated | Curriculum with per-task checkboxes and progress state | /dashboard | planned |
-| /dashboard/cv | page | authenticated | CV-building track — unlocks after full roadmap completion | /dashboard | planned |
-| /dashboard/interview-prep | page | authenticated | Interview-prep track — unlocks after full roadmap completion | /dashboard | planned |
+| /dashboard/cv | page | authenticated | CV-building track — teaser visible early, full tools unlock after roadmap completion | /dashboard | planned |
+| /dashboard/interview-prep | page | authenticated | Interview-prep track — teaser visible early, full tools unlock after roadmap completion | /dashboard | planned |
 | /dashboard/profile | page | authenticated | Edit profile data (country, education status, university, dept, CGPA) | /dashboard | planned |
 | /admin | page | admin | Aggregate dashboard — total users, completion rates, activity feed | / | planned |
 | /admin/users | page | admin | User list with filters (country, university, progress %) | /admin | planned |
