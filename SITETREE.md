@@ -25,7 +25,7 @@
 
 | Path | Type | Auth | Purpose | Parent | Status |
 |---|---|---|---|---|---|
-| / | page | public | Landing page — intro to the roadmap and what it offers | — | planned |
+| / | page | public | Landing page — intro to the roadmap and what it offers | — | built |
 | /about | page | public | Why this exists, who it's for | / | planned |
 | /curriculum | page | public | Full scrollable roadmap overview with expandable phase sections | / | planned |
 | /curriculum/[phase] | page | public | Individual phase detail — tasks, resources, free/paid direction | /curriculum | planned |

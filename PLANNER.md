@@ -150,12 +150,12 @@ Standard Better Auth tables.
 ## Timeline / Phases
 
 ### Phase 1 — Foundation
-Status: `[ ]` pending
+Status: `[x]` done
 
-- [ ] Repo scaffold, Vercel + Cloudflare connected
-- [ ] Drizzle schema for core tables
-- [ ] Better Auth setup with role enum
-- [ ] Upstash Redis rate limiting on auth routes
+- [x] Repo scaffold, Vercel + Cloudflare connected
+- [x] Drizzle schema for core tables
+- [x] Better Auth setup with role enum
+- [x] Upstash Redis rate limiting on auth routes
 
 ### Phase 2 — Core flows
 Status: `[ ]` pending
@@ -185,9 +185,9 @@ Status: `[ ]` pending
 ## Next Steps
 
 In order:
-1. Scaffold Next.js 16 project, Better Auth, Drizzle/Neon, dual deploy config
-2. Migrate the 16-week markdown roadmap content into `roadmap_phases` / `roadmap_tasks` seed data
-3. Build `/curriculum` with anonymous localStorage tracking before touching auth
+1. Migrate the 16-week markdown roadmap content into `roadmap_phases` / `roadmap_tasks` seed data
+2. Build `/curriculum` with anonymous localStorage tracking before touching auth UI
+3. Build `/signup` and `/login` pages using Better Auth client
 
 ---
 

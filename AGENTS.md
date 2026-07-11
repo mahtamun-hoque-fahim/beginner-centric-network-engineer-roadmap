@@ -32,6 +32,11 @@ Interactive network engineering roadmap and progress tracker, primary voice for 
 
 (Newest first. Maximum 10 entries — drop the oldest when an 11th is added.)
 
+### 2026-07-11 (Phase 1)
+- Did: Scaffolded Next.js 16 project — package.json, tsconfig, next.config.ts, Drizzle schema (users extended, roadmap_phases, roadmap_tasks, user_progress, cv_track, interview_prep_track), Better Auth instance with role/profile additionalFields, DAL (requireUser/requireAdmin), Upstash rate limiter wired into auth POST handler, proxy.ts (thin redirect layer only), wrangler.jsonc + open-next.config.ts for Cloudflare, self-hosted Google Sans via next/font/local, globals.css with full token theme, minimal landing page.
+- Decided: Rate limiting applied at the route-handler level (wrapping Better Auth's POST), not inside proxy.ts, since proxy stays a thin network layer per Next.js 16 convention — auth/session logic lives in the DAL, not proxy.
+- Next: Migrate the 16-week markdown roadmap into seed data for roadmap_phases/roadmap_tasks, build /curriculum with anonymous localStorage progress tracking, build /login and /signup pages.
+
 ### 2026-07-11
 - Did: Ran full Singularity → tree-man → Council PRE-BUILD → repo-maintainer pipeline. BRAIN.md, SITETREE.md, PLANNER.md, DESIGN_GUIDE.md, README.md, AGENTS.md, CLAUDE.md all committed to repo root.
 - Decided: Council PRE-BUILD returned CONDITIONAL GO with 7 adjustments — audience framing (CSE students primary voice, open access), de-frictioned signup (localStorage-first), teaser visibility for CV/interview-prep tracks, role-based admin auth, Upstash rate limiting, tier-ready schema. All locked into BRAIN.md.
