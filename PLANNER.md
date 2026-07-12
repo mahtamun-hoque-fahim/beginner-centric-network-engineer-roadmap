@@ -163,14 +163,14 @@ Status: `[x]` done
 - [x] Curriculum data seeded (from the original 16-week markdown roadmap)
 - [x] Anonymous localStorage progress tracking
 - [x] Signup/login with profile fields
-- [ ] Server-side progress persistence + motivational quote trigger (currently client-only via localStorage; server sync deferred to Phase 3 alongside the user dashboard)
+- [x] Server-side progress persistence + motivational quote trigger
 
 ### Phase 3 — Dashboards
-Status: `[ ]` pending
+Status: `[x]` done
 
-- [ ] User dashboard (progress, streak, current phase)
-- [ ] CV + interview-prep teaser/unlock logic
-- [ ] Admin dashboard (aggregate stats, user list, user detail)
+- [x] User dashboard (progress, streak, current phase)
+- [x] CV + interview-prep teaser/unlock logic
+- [x] Admin dashboard (aggregate stats, user list, user detail)
 
 ### Phase 4 — Polish
 Status: `[ ]` pending
@@ -185,10 +185,10 @@ Status: `[ ]` pending
 ## Next Steps
 
 In order:
-1. Wire server-side progress persistence (`user_progress` table) for signed-in users, replacing localStorage-only tracking with a merge-on-login flow
-2. Build `/dashboard` (progress overview, streak, current phase)
-3. Build `/dashboard/cv` and `/dashboard/interview-prep` teaser states
-4. Build `/admin` aggregate dashboard
+1. Mobile responsiveness pass across dashboard/admin (sidebar currently hidden below `md` breakpoint with no mobile nav fallback — needs a drawer)
+2. Accessibility audit (WCAG 2.2 AA) — focus states, aria labels, contrast on mint-on-dark combinations
+3. Production deploy verification on both Vercel and Cloudflare, real Neon + Upstash credentials
+4. Waterborne emoji sweep, motion-hive pass, then Council POST before shipping
 
 ---
 

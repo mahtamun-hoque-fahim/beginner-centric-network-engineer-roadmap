@@ -31,14 +31,14 @@
 | /curriculum/[phase] | page | public | Individual phase detail — tasks, resources, free/paid direction | /curriculum | built |
 | /login | page | public | Sign in | / | built |
 | /signup | page | public | Sign up — collects country, education status, university, dept, CGPA | / | built |
-| /dashboard | page | authenticated | Personal progress overview, current phase, streak | / | planned |
-| /dashboard/roadmap | page | authenticated | Curriculum with per-task checkboxes and progress state | /dashboard | planned |
-| /dashboard/cv | page | authenticated | CV-building track — teaser visible early, full tools unlock after roadmap completion | /dashboard | planned |
-| /dashboard/interview-prep | page | authenticated | Interview-prep track — teaser visible early, full tools unlock after roadmap completion | /dashboard | planned |
-| /dashboard/profile | page | authenticated | Edit profile data (country, education status, university, dept, CGPA) | /dashboard | planned |
-| /admin | page | admin | Aggregate dashboard — total users, completion rates, activity feed | / | planned |
-| /admin/users | page | admin | User list with filters (country, university, progress %) | /admin | planned |
-| /admin/users/[id] | page | admin | Individual user detail view | /admin/users | planned |
+| /dashboard | page | authenticated | Personal progress overview, current phase, streak | / | built |
+| /dashboard/roadmap | page | authenticated | Curriculum with per-task checkboxes and progress state | /dashboard | built |
+| /dashboard/cv | page | authenticated | CV-building track — teaser visible early, full tools unlock after roadmap completion | /dashboard | built |
+| /dashboard/interview-prep | page | authenticated | Interview-prep track — teaser visible early, full tools unlock after roadmap completion | /dashboard | built |
+| /dashboard/profile | page | authenticated | Edit profile data (country, education status, university, dept, CGPA) | /dashboard | built |
+| /admin | page | admin | Aggregate dashboard — total users, completion rates, activity feed | / | built |
+| /admin/users | page | admin | User list with filters (country, university, progress %) | /admin | built |
+| /admin/users/[id] | page | admin | Individual user detail view | /admin/users | built |
 
 ## Field Reference
 
