@@ -19,7 +19,7 @@ CSS variables in `app/globals.css` (Tailwind v4 — tokens auto-promote to utili
   /* Text */
   --color-text: #F3F6F4;
   --color-text-muted: #8A938E;
-  --color-text-faint: #5A625E;
+  --color-text-faint: #7a827d;
 
   /* Brand */
   --color-accent: #3DF49A;
@@ -211,3 +211,7 @@ Always visible. Never `outline: none` without a replacement.
   outline-offset: 2px;
 }
 ```
+
+## Accessibility audit log
+
+**2026-07-11.** WCAG AA contrast check run against `--color-bg` (#070807) and `--color-surface-elevated` (#131720). `--color-text-faint` originally failed at 3.19:1 / 2.85:1 (below the 4.5:1 AA threshold for normal text) — used for task metadata labels, timestamps, and badge type text. Replaced `#5A625E` with `#7a827d`, which passes at 5.08:1 / 4.54:1 on both backgrounds while keeping the same muted tint. All other token pairs (text, muted, accent) passed AA on first check.

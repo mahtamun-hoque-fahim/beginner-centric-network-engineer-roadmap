@@ -32,6 +32,11 @@ Interactive network engineering roadmap and progress tracker, primary voice for 
 
 (Newest first. Maximum 10 entries — drop the oldest when an 11th is added.)
 
+### 2026-07-11 (Phase 4, partial)
+- Did: Built MobileDrawer component (hamburger + slide-out panel with backdrop) and wired it into both /dashboard and /admin layouts, so those areas now work below the `md` breakpoint. Ran a Waterborne-style emoji sweep across the entire repo (source + docs) — clean, no emojis found. Ran a WCAG AA contrast check against the design token pairs — found `--color-text-faint` failing at 3.19:1/2.85:1, corrected to `#7a827d` (5.08:1/4.54:1), updated in globals.css and DESIGN_GUIDE.md.
+- Decided: Production deploy verification cannot happen from this environment — it needs Fahim to provision a real Neon project and Upstash Redis instance and set env vars in both Vercel and Cloudflare dashboards. Documented as a manual next step rather than attempted. Council POST deferred until after that live deploy, since POST mode is meant to evaluate the actually-deployed product.
+- Next: Fahim provisions real credentials and does the first deploy; then OG images, a dedicated motion-hive pass, and Council POST.
+
 ### 2026-07-11 (Phase 3)
 - Did: Built server-side progress persistence (/api/progress GET/POST/PUT with merge-on-login for localStorage → account migration), useServerProgress hook, DashboardPhaseAccordion. Built /dashboard (stats: progress %, streak from consecutive completedAt days, current phase), /dashboard/roadmap, /dashboard/profile (+ /api/profile). Built /dashboard/cv and /dashboard/interview-prep with TeaserGate (shown until 100% roadmap completion, per Council's teaser-not-fully-hidden adjustment) and full tools once unlocked (CvBuilder, InterviewPrepTool) backed by /api/tracks/cv and /api/tracks/interview-prep. Built /admin, /admin/users (country/university filters), /admin/users/[id] — all gated by requireAdmin (role field, never hardcoded email), aggregate queries server-only via src/lib/admin.ts.
 - Decided: Dashboard and admin nav are separate sidebar components (DashboardNav, AdminNav) rather than one shared nav with role branching — keeps admin's smaller link set simple and avoids conditional rendering complexity for a 2-link admin nav.

@@ -173,22 +173,25 @@ Status: `[x]` done
 - [x] Admin dashboard (aggregate stats, user list, user detail)
 
 ### Phase 4 — Polish
-Status: `[ ]` pending
+Status: `[~]` in progress
 
-- [ ] Mobile responsiveness audit
-- [ ] Accessibility pass (WCAG 2.2 AA)
+- [x] Mobile responsiveness audit — drawer nav added for `/dashboard` and `/admin` (MobileDrawer component, sidebars now have a mobile fallback)
+- [x] Accessibility pass (WCAG 2.2 AA) — contrast audit run, `--color-text-faint` corrected from 3.19:1 to 5.08:1; focus-visible rings and aria labels already present from Phase 1-3 build
 - [ ] OG images
-- [ ] Production deploy verification on both platforms
+- [ ] Production deploy verification on both platforms — **requires real Neon/Upstash/Better Auth credentials**, cannot be completed from this environment; manual step for Fahim
+- [ ] Waterborne sweep — run and passed clean (no emojis found repo-wide) as part of this session, but re-run after any future copy changes
+- [ ] motion-hive touch-up — base hover/transition states are already in place across components (150-300ms per DESIGN_GUIDE.md); a dedicated pass for finer polish is still open
+- [ ] Council POST — deferred until after live deploy verification, since POST mode evaluates the finished, deployed product
 
 ---
 
 ## Next Steps
 
 In order:
-1. Mobile responsiveness pass across dashboard/admin (sidebar currently hidden below `md` breakpoint with no mobile nav fallback — needs a drawer)
-2. Accessibility audit (WCAG 2.2 AA) — focus states, aria labels, contrast on mint-on-dark combinations
-3. Production deploy verification on both Vercel and Cloudflare, real Neon + Upstash credentials
-4. Waterborne emoji sweep, motion-hive pass, then Council POST before shipping
+1. Fahim: create real Neon project, Upstash Redis instance, and set all env vars in Vercel + Cloudflare dashboards (see .env.example)
+2. Run `npm install`, `npx drizzle-kit push`, `npm run db:seed`, `npm run dev` locally to smoke-test before first deploy
+3. First deploy to Vercel, verify against Cloudflare via `npm run build:cf` / `npm run preview:cf`
+4. OG images, then a dedicated motion-hive pass, then Council POST once live
 
 ---
 
