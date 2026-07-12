@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function HomePage() {
   return (
     <main className="min-h-screen flex items-center justify-center px-6">
@@ -11,9 +13,26 @@ export default function HomePage() {
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
           Beginner to interview-ready.
         </h1>
-        <p className="text-text-muted text-lg">
-          Phase 1 scaffold live. Curriculum, dashboards, and tracks are next.
+        <p className="text-text-muted text-lg mb-10">
+          A scenario-based path built for CSE students who want to be
+          competitive with dedicated networking graduates — no lectures, no
+          gatekeeping, just the next real task.
         </p>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Link
+            href="/curriculum"
+            className="bg-accent text-bg px-6 py-3 rounded-md font-semibold hover:bg-accent-hover transition-colors"
+          >
+            Start the roadmap
+          </Link>
+          <Link
+            href="/signup"
+            className="bg-surface text-text px-6 py-3 rounded-md border border-border hover:bg-surface-elevated transition-colors"
+          >
+            Create an account
+          </Link>
+        </div>
       </div>
     </main>
   )

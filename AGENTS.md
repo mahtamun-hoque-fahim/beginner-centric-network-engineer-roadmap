@@ -32,6 +32,11 @@ Interactive network engineering roadmap and progress tracker, primary voice for 
 
 (Newest first. Maximum 10 entries — drop the oldest when an 11th is added.)
 
+### 2026-07-11 (Phase 2)
+- Did: Migrated the original 16-week markdown roadmap into seed data (src/lib/db/seed.ts, scripts/seed.ts, npm run db:seed) across 4 phases / ~30 tasks with resources. Built /curriculum (Server Component data fetch) + /curriculum/[phase] deep-link, PhaseAccordion client component wired to a localStorage progress hook (useLocalProgress — reads only inside useEffect to avoid hydration mismatch), TaskRow + QuoteToast components, motivational quote pool (src/lib/quotes.ts). Built /login and /signup pages using Better Auth's client (signIn.email, signUp.email) with full profile field collection on signup. Landing page CTAs wired to /curriculum and /signup.
+- Decided: Progress tracking is client-only (localStorage) for now per the de-frictioned signup adjustment from Council — server-side persistence via user_progress deferred to Phase 3 alongside the dashboard, where a login-time merge strategy will reconcile local vs. server progress.
+- Next: Wire server-side progress persistence, build /dashboard, /dashboard/cv and /dashboard/interview-prep teaser states, then /admin.
+
 ### 2026-07-11 (Phase 1)
 - Did: Scaffolded Next.js 16 project — package.json, tsconfig, next.config.ts, Drizzle schema (users extended, roadmap_phases, roadmap_tasks, user_progress, cv_track, interview_prep_track), Better Auth instance with role/profile additionalFields, DAL (requireUser/requireAdmin), Upstash rate limiter wired into auth POST handler, proxy.ts (thin redirect layer only), wrangler.jsonc + open-next.config.ts for Cloudflare, self-hosted Google Sans via next/font/local, globals.css with full token theme, minimal landing page.
 - Decided: Rate limiting applied at the route-handler level (wrapping Better Auth's POST), not inside proxy.ts, since proxy stays a thin network layer per Next.js 16 convention — auth/session logic lives in the DAL, not proxy.

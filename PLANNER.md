@@ -158,12 +158,12 @@ Status: `[x]` done
 - [x] Upstash Redis rate limiting on auth routes
 
 ### Phase 2 — Core flows
-Status: `[ ]` pending
+Status: `[x]` done
 
-- [ ] Curriculum data seeded (from the original 16-week markdown roadmap)
-- [ ] Anonymous localStorage progress tracking
-- [ ] Signup/login with profile fields
-- [ ] Server-side progress persistence + motivational quote trigger
+- [x] Curriculum data seeded (from the original 16-week markdown roadmap)
+- [x] Anonymous localStorage progress tracking
+- [x] Signup/login with profile fields
+- [ ] Server-side progress persistence + motivational quote trigger (currently client-only via localStorage; server sync deferred to Phase 3 alongside the user dashboard)
 
 ### Phase 3 — Dashboards
 Status: `[ ]` pending
@@ -185,9 +185,10 @@ Status: `[ ]` pending
 ## Next Steps
 
 In order:
-1. Migrate the 16-week markdown roadmap content into `roadmap_phases` / `roadmap_tasks` seed data
-2. Build `/curriculum` with anonymous localStorage tracking before touching auth UI
-3. Build `/signup` and `/login` pages using Better Auth client
+1. Wire server-side progress persistence (`user_progress` table) for signed-in users, replacing localStorage-only tracking with a merge-on-login flow
+2. Build `/dashboard` (progress overview, streak, current phase)
+3. Build `/dashboard/cv` and `/dashboard/interview-prep` teaser states
+4. Build `/admin` aggregate dashboard
 
 ---
 

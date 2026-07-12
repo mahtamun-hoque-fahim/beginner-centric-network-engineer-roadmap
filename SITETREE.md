@@ -27,10 +27,10 @@
 |---|---|---|---|---|---|
 | / | page | public | Landing page — intro to the roadmap and what it offers | — | built |
 | /about | page | public | Why this exists, who it's for | / | planned |
-| /curriculum | page | public | Full scrollable roadmap overview with expandable phase sections | / | planned |
-| /curriculum/[phase] | page | public | Individual phase detail — tasks, resources, free/paid direction | /curriculum | planned |
-| /login | page | public | Sign in | / | planned |
-| /signup | page | public | Sign up — collects country, education status, university, dept, CGPA | / | planned |
+| /curriculum | page | public | Full scrollable roadmap overview with expandable phase sections | / | built |
+| /curriculum/[phase] | page | public | Individual phase detail — tasks, resources, free/paid direction | /curriculum | built |
+| /login | page | public | Sign in | / | built |
+| /signup | page | public | Sign up — collects country, education status, university, dept, CGPA | / | built |
 | /dashboard | page | authenticated | Personal progress overview, current phase, streak | / | planned |
 | /dashboard/roadmap | page | authenticated | Curriculum with per-task checkboxes and progress state | /dashboard | planned |
 | /dashboard/cv | page | authenticated | CV-building track — teaser visible early, full tools unlock after roadmap completion | /dashboard | planned |
