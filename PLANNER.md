@@ -177,10 +177,10 @@ Status: `[~]` in progress
 
 - [x] Mobile responsiveness audit — drawer nav added for `/dashboard` and `/admin` (MobileDrawer component, sidebars now have a mobile fallback)
 - [x] Accessibility pass (WCAG 2.2 AA) — contrast audit run, `--color-text-faint` corrected from 3.19:1 to 5.08:1; focus-visible rings and aria labels already present from Phase 1-3 build
-- [ ] OG images
+- [x] OG images — `src/app/opengraph-image.tsx` (next/og, edge runtime, brand palette), full OG/Twitter metadata wired in root layout
 - [ ] Production deploy verification on both platforms — **requires real Neon/Upstash/Better Auth credentials**, cannot be completed from this environment; manual step for Fahim
-- [ ] Waterborne sweep — run and passed clean (no emojis found repo-wide) as part of this session, but re-run after any future copy changes
-- [ ] motion-hive touch-up — base hover/transition states are already in place across components (150-300ms per DESIGN_GUIDE.md); a dedicated pass for finer polish is still open
+- [x] Waterborne sweep — run and passed clean (no emojis found repo-wide) as part of this session, but re-run after any future copy changes
+- [x] motion-hive touch-up — full audit run: fixed broken drawer motion (was instant, now fade+slide), added `:active` press states to every button/checkbox in the app, replaced weak default easing with custom `--ease-out`/`--ease-drawer`/`--ease-subtle` curves, removed `transition-all` anti-pattern in favor of explicit properties
 - [ ] Council POST — deferred until after live deploy verification, since POST mode evaluates the finished, deployed product
 
 ---

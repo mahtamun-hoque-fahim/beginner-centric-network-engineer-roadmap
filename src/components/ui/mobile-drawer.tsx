@@ -28,11 +28,11 @@ export function MobileDrawer({
           <button
             aria-label="Close menu"
             onClick={() => setOpen(false)}
-            className="absolute inset-0 bg-bg/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-bg/80 backdrop-blur-sm animate-[fade-in_200ms_var(--ease-subtle)]"
           />
 
           {/* Drawer panel */}
-          <div className="absolute inset-y-0 left-0 w-72 bg-surface border-r border-border flex flex-col">
+          <div className="absolute inset-y-0 left-0 w-72 bg-surface border-r border-border flex flex-col animate-[drawer-in_300ms_var(--ease-drawer)]">
             <div className="flex items-center justify-between p-4 border-b border-border">
               <span
                 className="text-text-muted text-xs uppercase tracking-wide"

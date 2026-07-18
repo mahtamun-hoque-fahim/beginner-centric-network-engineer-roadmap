@@ -22,13 +22,13 @@ export default function HomePage() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             href="/curriculum"
-            className="bg-accent text-bg px-6 py-3 rounded-md font-semibold hover:bg-accent-hover transition-colors"
+            className="bg-accent text-bg px-6 py-3 rounded-md font-semibold hover:bg-accent-hover active:scale-[0.97] transition-[background-color,transform] duration-150 ease-out"
           >
             Start the roadmap
           </Link>
           <Link
             href="/signup"
-            className="bg-surface text-text px-6 py-3 rounded-md border border-border hover:bg-surface-elevated transition-colors"
+            className="bg-surface text-text px-6 py-3 rounded-md border border-border hover:bg-surface-elevated active:scale-[0.97] transition-[background-color,transform] duration-150 ease-out"
           >
             Create an account
           </Link>

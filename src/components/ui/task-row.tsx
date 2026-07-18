@@ -24,7 +24,7 @@ export function TaskRow({
           onClick={onToggle}
           aria-pressed={completed}
           aria-label={completed ? `Mark "${title}" incomplete` : `Mark "${title}" complete`}
-          className={`mt-0.5 shrink-0 size-5 rounded-md border flex items-center justify-center transition-colors ${
+          className={`mt-0.5 shrink-0 size-5 rounded-md border flex items-center justify-center active:scale-[0.9] transition-[background-color,border-color,transform] duration-150 ease-out ${
             completed
               ? 'bg-accent border-accent text-bg'
               : 'border-border bg-surface-elevated hover:border-accent-faint'
@@ -49,7 +49,7 @@ export function TaskRow({
                   href={r.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-sm border border-border bg-surface-elevated hover:border-accent-faint transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-sm border border-border bg-surface-elevated hover:border-accent-faint active:scale-[0.97] transition-[border-color,transform] duration-150 ease-out"
                 >
                   <span
                     className={`size-1.5 rounded-full ${

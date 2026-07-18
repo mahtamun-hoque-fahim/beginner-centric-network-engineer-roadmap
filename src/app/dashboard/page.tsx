@@ -56,7 +56,7 @@ export default async function DashboardPage() {
 
       <Link
         href="/dashboard/roadmap"
-        className="inline-flex items-center gap-2 bg-accent text-bg px-5 py-2.5 rounded-md font-semibold hover:bg-accent-hover transition-colors"
+        className="inline-flex items-center gap-2 bg-accent text-bg px-5 py-2.5 rounded-md font-semibold hover:bg-accent-hover active:scale-[0.97] transition-[background-color,transform] duration-150 ease-out"
       >
         Continue the roadmap
         <ArrowRight className="size-4" />
@@ -71,13 +71,13 @@ export default async function DashboardPage() {
           <div className="flex gap-3">
             <Link
               href="/dashboard/cv"
-              className="bg-accent text-bg px-4 py-2 rounded-md font-semibold hover:bg-accent-hover transition-colors text-sm"
+              className="bg-accent text-bg px-4 py-2 rounded-md font-semibold hover:bg-accent-hover active:scale-[0.97] transition-[background-color,transform] duration-150 ease-out text-sm"
             >
               Open CV track
             </Link>
             <Link
               href="/dashboard/interview-prep"
-              className="bg-surface text-text px-4 py-2 rounded-md border border-border hover:bg-surface-elevated transition-colors text-sm"
+              className="bg-surface text-text px-4 py-2 rounded-md border border-border hover:bg-surface-elevated active:scale-[0.97] transition-[background-color,transform] duration-150 ease-out text-sm"
             >
               Open interview prep
             </Link>

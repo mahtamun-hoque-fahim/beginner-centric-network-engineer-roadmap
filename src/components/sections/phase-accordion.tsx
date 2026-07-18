@@ -44,7 +44,7 @@ export function PhaseAccordion({ phases }: { phases: Phase[] }) {
         </div>
         <div className="w-full bg-surface-elevated rounded-full h-2 overflow-hidden">
           <div
-            className="bg-accent h-full transition-all duration-300"
+            className="bg-accent h-full transition-[width] duration-300 ease-[var(--ease-out)]"
             style={{ width: hydrated ? `${progressPct}%` : '0%' }}
           />
         </div>
@@ -78,7 +78,7 @@ export function PhaseAccordion({ phases }: { phases: Phase[] }) {
                   </p>
                 </div>
                 <ChevronDown
-                  className={`size-5 shrink-0 text-text-muted transition-transform duration-200 ${
+                  className={`size-5 shrink-0 text-text-muted transition-transform duration-200 ease-[var(--ease-out)] ${
                     isOpen ? 'rotate-180' : ''
                   }`}
                 />

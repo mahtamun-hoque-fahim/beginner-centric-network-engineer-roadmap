@@ -87,7 +87,7 @@ export function CvBuilder() {
         <button
           onClick={save}
           disabled={saving}
-          className="inline-flex items-center gap-2 bg-accent text-bg px-4 py-2 rounded-md font-semibold hover:bg-accent-hover transition-colors disabled:opacity-60"
+          className="inline-flex items-center gap-2 bg-accent text-bg px-4 py-2 rounded-md font-semibold hover:bg-accent-hover active:scale-[0.97] transition-[background-color,transform] duration-150 ease-out disabled:opacity-60 disabled:active:scale-100"
         >
           <Save className="size-4" />
           {saving ? 'Saving...' : 'Save draft'}

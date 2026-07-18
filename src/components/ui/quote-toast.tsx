@@ -20,7 +20,7 @@ export function QuoteToast({ quote, onDone }: { quote: string | null; onDone: ()
 
   return (
     <div
-      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-md w-[calc(100%-3rem)] transition-all duration-200 ease-out ${
+      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-md w-[calc(100%-3rem)] transition-[opacity,transform] duration-200 ease-[var(--ease-out)] ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
       }`}
       role="status"

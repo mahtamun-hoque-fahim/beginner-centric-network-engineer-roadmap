@@ -32,6 +32,11 @@ Interactive network engineering roadmap and progress tracker, primary voice for 
 
 (Newest first. Maximum 10 entries — drop the oldest when an 11th is added.)
 
+### 2026-07-11 (Phase 4, motion-hive + OG images)
+- Did: Ran full motion-hive audit (table printed in-conversation before fixing anything, per skill protocol). Fixed: MobileDrawer had zero animation (backdrop and panel appeared instantly) — added `fade-in`/`drawer-in` keyframes with `--ease-subtle`/`--ease-drawer`; added `active:scale-[0.97]` (or `0.9` for the small checkbox) press feedback to every clickable button/link/checkbox across the app (landing CTAs, login/signup submit, dashboard CTAs, CV builder save, profile save, admin filter, task checkbox, resource chips); replaced `transition-all` with explicit properties on progress bars and the quote toast; swapped default Tailwind easing for the custom `--ease-out` cubic-bezier on chevron rotation and the quote toast. Added `src/app/opengraph-image.tsx` (next/og, edge runtime, brand palette) and full OG/Twitter metadata block in root layout.
+- Decided: Skipped stagger-on-render for task lists (motion-hive audit flagged it as `low priority/decorative` — lists are short, 3-8 items typically visible, not worth the added complexity for this pass).
+- Next: Fahim provisions real credentials and does the first deploy; then a dedicated valley-of-death spec-vs-code audit and Council POST once live.
+
 ### 2026-07-11 (Phase 4, partial)
 - Did: Built MobileDrawer component (hamburger + slide-out panel with backdrop) and wired it into both /dashboard and /admin layouts, so those areas now work below the `md` breakpoint. Ran a Waterborne-style emoji sweep across the entire repo (source + docs) — clean, no emojis found. Ran a WCAG AA contrast check against the design token pairs — found `--color-text-faint` failing at 3.19:1/2.85:1, corrected to `#7a827d` (5.08:1/4.54:1), updated in globals.css and DESIGN_GUIDE.md.
 - Decided: Production deploy verification cannot happen from this environment — it needs Fahim to provision a real Neon project and Upstash Redis instance and set env vars in both Vercel and Cloudflare dashboards. Documented as a manual next step rather than attempted. Council POST deferred until after that live deploy, since POST mode is meant to evaluate the actually-deployed product.

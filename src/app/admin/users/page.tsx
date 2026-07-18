@@ -39,7 +39,7 @@ export default async function AdminUsersPage({
         />
         <button
           type="submit"
-          className="bg-surface text-text px-4 py-2 rounded-md border border-border hover:bg-surface-elevated transition-colors text-sm"
+          className="bg-surface text-text px-4 py-2 rounded-md border border-border hover:bg-surface-elevated active:scale-[0.97] transition-[background-color,transform] duration-150 ease-out text-sm"
         >
           Filter
         </button>
