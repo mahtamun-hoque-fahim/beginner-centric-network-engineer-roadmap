@@ -24,12 +24,11 @@
 - ORM: Drizzle
 - Auth: Better Auth (role: `user | admin`)
 - Rate limiting: Upstash Redis (signup/login routes)
-- Deployment: Vercel (primary), Cloudflare Workers via `@opennextjs/cloudflare` (secondary)
+- Deployment: Vercel (active). Cloudflare Workers deferred — see BRAIN.md Context Hooks.
 
 **Deployment topology:**
 - `main` → Vercel production
 - PRs → Vercel preview
-- `main` → Cloudflare Workers production (mirror)
 
 **Folder structure (summary):** see README.md
 

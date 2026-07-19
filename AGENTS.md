@@ -14,7 +14,7 @@ Interactive network engineering roadmap and progress tracker, primary voice for 
 ## Conventions & Non-Negotiables
 
 - No emojis anywhere in code or UI — lucide-react icons or inline SVG only
-- Dual deploy target: Vercel (primary) + Cloudflare Workers via `@opennextjs/cloudflare` (secondary) — every route must stay Edge Runtime compatible, neon-http driver only
+- Deploy target: Vercel (active). Cloudflare Workers deployment is deferred for now — see BRAIN.md Context Hooks before reintroducing `@opennextjs/cloudflare`/`wrangler`
 - Auth: Better Auth — session checked server-side via `auth.api.getSession()`, never client-only. Admin access gated by `role: 'admin'` field on the user table, never a hardcoded email check
 - Anonymous users track progress via localStorage before signup — do not force signup to use `/curriculum`
 - CV and interview-prep tracks (`/dashboard/cv`, `/dashboard/interview-prep`) show a teaser state before full roadmap completion — never fully hide them until 100%
@@ -31,6 +31,11 @@ Interactive network engineering roadmap and progress tracker, primary voice for 
 ## Session Log
 
 (Newest first. Maximum 10 entries — drop the oldest when an 11th is added.)
+
+### 2026-07-19 (local setup fixes)
+- Did: Fixed two npm install blockers found during Fahim's local setup — `lucide-react@0.383.0`'s peer deps only supported React up to 18 (bumped to `^1.25.0`, which supports React 19); `next@16.0.0` was in the unsupported gap for `@opennextjs/cloudflare@1.20.1`'s peer range (`>=15.5.18 <16 || >=16.2.6`), bumped to `^16.2.10`. Then, per Fahim's call, dropped Cloudflare Workers deployment entirely for now — removed `@opennextjs/cloudflare` and `wrangler` dev dependencies, deleted `wrangler.jsonc` and `open-next.config.ts`, removed the `build:cf`/`preview:cf`/`deploy:cf` scripts. Updated BRAIN.md, PLANNER.md, README.md, AGENTS.md to reflect Vercel-only deployment.
+- Decided: Cloudflare is deferred, not abandoned — BRAIN.md Context Hooks documents exactly what to re-add and what to re-check (the Next.js version vs. whatever `@opennextjs/cloudflare` version is current then) if it comes back later.
+- Next: Fahim runs `npm install` again locally, should resolve cleanly now without Cloudflare in the tree.
 
 ### 2026-07-11 (Phase 4, motion-hive + OG images)
 - Did: Ran full motion-hive audit (table printed in-conversation before fixing anything, per skill protocol). Fixed: MobileDrawer had zero animation (backdrop and panel appeared instantly) — added `fade-in`/`drawer-in` keyframes with `--ease-subtle`/`--ease-drawer`; added `active:scale-[0.97]` (or `0.9` for the small checkbox) press feedback to every clickable button/link/checkbox across the app (landing CTAs, login/signup submit, dashboard CTAs, CV builder save, profile save, admin filter, task checkbox, resource chips); replaced `transition-all` with explicit properties on progress bars and the quote toast; swapped default Tailwind easing for the custom `--ease-out` cubic-bezier on chevron rotation and the quote toast. Added `src/app/opengraph-image.tsx` (next/og, edge runtime, brand palette) and full OG/Twitter metadata block in root layout.

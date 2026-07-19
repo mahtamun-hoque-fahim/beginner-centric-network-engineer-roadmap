@@ -9,7 +9,7 @@ An interactive, scenario-based network engineering roadmap and progress tracker 
 - Neon (PostgreSQL) + Drizzle ORM
 - Better Auth
 - Upstash Redis (rate limiting)
-- Vercel (production), Cloudflare Workers via `@opennextjs/cloudflare` (mirror)
+- Vercel (production). Cloudflare Workers deployment deferred for now — see BRAIN.md Context Hooks
 
 ## Prerequisites
 
@@ -57,9 +57,8 @@ npx drizzle-kit push       # push schema directly (dev only)
 
 - Push to `main` → Vercel auto-deploys to production
 - Push to any other branch → Vercel preview deploy
-- Cloudflare Workers mirrors `main` via `@opennextjs/cloudflare`
 
-Before promoting a deploy, verify env vars are set in BOTH Vercel and Cloudflare dashboards (Production env).
+Cloudflare Workers deployment is deferred for now (see BRAIN.md). Set env vars in Vercel's dashboard (Production env) before promoting a deploy.
 
 ## Folder structure
 

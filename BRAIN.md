@@ -105,7 +105,7 @@ What's next (in spirit, not tasks):
 | Styling | Tailwind CSS v4 |
 | Database | Neon (PostgreSQL) + Drizzle ORM |
 | Auth | Better Auth |
-| Deployment | Vercel (primary) + Cloudflare Workers (secondary), Edge Runtime throughout |
+| Deployment | Vercel (primary, active). Cloudflare Workers deferred — see Context Hooks |
 | Email | Resend (if needed for auth flows) |
 | Rate limiting | Upstash Redis (signup/login routes) |
 | Repo | github.com/mahtamun-hoque-fahim/beginner-centric-network-engineer-roadmap |
@@ -114,7 +114,7 @@ What's next (in spirit, not tasks):
 
 ## Constraints & Non-Negotiables
 
-- Must deploy to both Vercel and Cloudflare Workers (Edge Runtime compatible, neon-http driver only)
+- Must deploy to Vercel. Cloudflare Workers deployment is deferred (see Context Hooks) — do not reintroduce `@opennextjs/cloudflare`/`wrangler` without checking with Fahim first
 - No emojis in UI — lucide-react icons only
 - Dark-first, no light mode (per inherited academic-line palette)
 - No Supabase
@@ -129,6 +129,7 @@ What's next (in spirit, not tasks):
 - This project's palette and academic tone deliberately mirror learnBEE/LearnDE — treat those two projects as sibling references for tone and dashboard patterns, not the SaaS/tooling dark-purple line (Formify, Blacksmith)
 - The original 16-week markdown roadmap (Phases 0–4) is the seed content for the curriculum data — do not regenerate it from scratch, adapt/expand it into the site's data model
 - CGPA and education fields are sensitive-ish personal data — treat with normal data-handling care in schema design, not just decoration
+- Cloudflare Workers deployment (`@opennextjs/cloudflare`, `wrangler.jsonc`, `open-next.config.ts`) was removed on 2026-07-19 — `@opennextjs/cloudflare@1.20.1` requires Next `>=16.2.6`, and even after bumping Next to satisfy that, Fahim chose to drop Cloudflare for now to unblock local setup rather than keep debugging the peer-dependency chain. The app still runs fine on Vercel alone. If Cloudflare comes back later, re-add the two config files and dev dependencies, and re-verify the Next.js version against whatever `@opennextjs/cloudflare` version is current then
 
 ---
 
