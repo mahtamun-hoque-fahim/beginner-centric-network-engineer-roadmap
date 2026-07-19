@@ -11,7 +11,9 @@ export default function HomePage() {
           Network Engineer Roadmap
         </p>
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Beginner to interview-ready.
+          Beginner to
+          <br />
+          interview-ready.
         </h1>
         <p className="text-text-muted text-lg mb-10">
           A scenario-based path built for CSE students who want to be
