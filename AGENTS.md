@@ -20,6 +20,8 @@ Interactive network engineering roadmap and progress tracker, primary voice for 
 - CV and interview-prep tracks (`/dashboard/cv`, `/dashboard/interview-prep`) show a teaser state before full roadmap completion — never fully hide them until 100%
 - Google Sans is self-hosted via `next/font/local` from supplied OFL-licensed font files in `public/fonts/` — never swap to a Google Fonts CDN reference
 - Motivational quote fires on every task completion — pool must be large/varied enough to avoid repetition fatigue at scale
+- Never construct `betterAuth()` or call `getDb()` at module scope in any file that could be imported during Next.js's build-time route collection (this includes `route.ts` files, not just page components) — always go through the lazy `getAuth()` / `getDb()` singletons. This crashed every Vercel deploy once already (2026-07-19); see `src/lib/auth.ts`'s comment for the full explanation
+- Pages that query the DB and use no other dynamic API (`headers()`, `cookies()`, etc.) get statically prerendered by default, which also requires DB access at build time — add `export const dynamic = 'force-dynamic'` to any such page unless static generation is deliberately wanted
 
 ## Security Gotchas
 
@@ -31,6 +33,11 @@ Interactive network engineering roadmap and progress tracker, primary voice for 
 ## Session Log
 
 (Newest first. Maximum 10 entries — drop the oldest when an 11th is added.)
+
+### 2026-07-19 (Vercel build crash — root cause + fix)
+- Did: Every Vercel deploy was failing with "No database connection string was provided to neon()". Root cause: `auth.ts` constructed `betterAuth()` at module scope, which eagerly called `getDb()` on import — Next.js's build-time route collection imports that module before any request, before env vars are guaranteed present. Fixed by making the auth instance a lazy singleton (`getAuth()`), moving handler construction inside the route's GET/POST instead of module scope, and extracting `additionalFields` config into a new zero-dependency `auth-fields.ts` shared by server and client (avoids pulling server-only DB code into the client bundle, and avoids a type-inference mismatch the lazy pattern introduced). Also found and fixed: `next.config.ts` had `reactCompiler: true` with no `babel-plugin-react-compiler` installed (removed it); `/curriculum` and `/curriculum/[phase]` were being statically prerendered by default, which also needs DB access at build time — added `force-dynamic` to both, removed the now-unnecessary `generateStaticParams`.
+- Decided: Verified every fix with a full local `npm run build` with **zero env vars set** (the exact worst-case Vercel was hitting) before pushing — build succeeded end to end, all 16 routes compiled. This is the standard going forward for any fix touching build-time behavior: reproduce the failure locally first, don't push-and-pray.
+- Next: Fahim re-triggers a Vercel deploy (should succeed now, assuming env vars are set in the dashboard — that's still a separate prerequisite from this fix).
 
 ### 2026-07-19 (local setup fixes)
 - Did: Fixed two npm install blockers found during Fahim's local setup — `lucide-react@0.383.0`'s peer deps only supported React up to 18 (bumped to `^1.25.0`, which supports React 19); `next@16.0.0` was in the unsupported gap for `@opennextjs/cloudflare@1.20.1`'s peer range (`>=15.5.18 <16 || >=16.2.6`), bumped to `^16.2.10`. Then, per Fahim's call, dropped Cloudflare Workers deployment entirely for now — removed `@opennextjs/cloudflare` and `wrangler` dev dependencies, deleted `wrangler.jsonc` and `open-next.config.ts`, removed the `build:cf`/`preview:cf`/`deploy:cf` scripts. Updated BRAIN.md, PLANNER.md, README.md, AGENTS.md to reflect Vercel-only deployment.
