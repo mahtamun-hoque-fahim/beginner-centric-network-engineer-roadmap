@@ -2,10 +2,7 @@ import { notFound } from 'next/navigation'
 import { getCurriculum } from '@/lib/curriculum'
 import { PhaseAccordion } from '@/components/sections/phase-accordion'
 
-export async function generateStaticParams() {
-  const phases = await getCurriculum()
-  return phases.map((p) => ({ phase: p.id }))
-}
+export const dynamic = 'force-dynamic'
 
 export default async function PhasePage({
   params,

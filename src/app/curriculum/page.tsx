@@ -1,6 +1,11 @@
 import { getCurriculum } from '@/lib/curriculum'
 import { PhaseAccordion } from '@/components/sections/phase-accordion'
 
+// Fetch per-request, not at build time — keeps the build independent of
+// DB availability, and means curriculum content updates show up without
+// a redeploy.
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Curriculum — Network Engineer Roadmap',
 }
