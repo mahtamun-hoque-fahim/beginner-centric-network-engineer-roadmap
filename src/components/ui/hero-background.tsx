@@ -50,6 +50,7 @@ export function HeroBackground() {
 
       void main() {
         vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+        uv.y = -uv.y;
 
         float depth = 1.0 / (uv.y + 1.15);
         vec2 gridUv = vec2(uv.x * depth, depth + u_time * 0.12);
