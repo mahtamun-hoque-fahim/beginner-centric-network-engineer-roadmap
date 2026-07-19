@@ -1,9 +1,11 @@
 import Link from 'next/link'
+import { HeroBackground } from '@/components/ui/hero-background'
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-2xl text-center">
+    <main className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+      <HeroBackground />
+      <div className="relative z-10 max-w-2xl text-center">
         <p
           className="text-accent text-xs tracking-[0.2em] uppercase mb-6"
           style={{ fontFamily: 'var(--font-mono)' }}
