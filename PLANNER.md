@@ -118,16 +118,22 @@ Standard Better Auth tables.
 
 ## API Routes
 
+Curriculum and admin data are fetched directly in Server Components via
+`src/lib/curriculum.ts` and `src/lib/admin.ts` — there is no separate
+`/api/curriculum` or `/api/admin/*` API layer. Only client-interactive
+flows (auth, progress, tracks, profile) go through actual route handlers.
+
 | Method | Path | Auth | Body | Response |
 |---|---|---|---|---|
-| GET | /api/curriculum | public | — | Phase[] with tasks |
-| POST | /api/progress | session | `{ taskId }` | `{ ok: true, quote: string }` |
-| GET | /api/progress | session | — | UserProgress[] |
-| GET | /api/tracks/cv | session | — | `{ status, data }` |
-| GET | /api/tracks/interview-prep | session | — | `{ status, data }` |
-| GET | /api/admin/stats | session + admin | — | `{ totalUsers, completionRate, recentActivity }` |
-| GET | /api/admin/users | session + admin | query: country?, university?, minProgress? | User[] |
-| GET | /api/admin/users/[id] | session + admin | — | User detail + full progress |
+| GET/POST | /api/auth/[...all] | public | Better Auth internals | Better Auth internals |
+| PUT | /api/profile | session | `{ country?, educationStatus?, university?, department?, cgpa? }` | `{ ok: true }` |
+| GET | /api/progress | session | — | `{ taskIds: string[] }` |
+| POST | /api/progress | session | `{ taskId }` | `{ completed: boolean, quote?: string }` — quote only present when completing (not un-completing) a task |
+| PUT | /api/progress | session | `{ taskIds: string[] }` | `{ merged: number }` — merges anonymous localStorage progress into the account on login |
+| GET | /api/tracks/cv | session | — | `{ data: object \| null }` |
+| PUT | /api/tracks/cv | session | `{ data }` | `{ ok: true }` |
+| GET | /api/tracks/interview-prep | session | — | `{ data: object \| null }` |
+| PUT | /api/tracks/interview-prep | session | `{ data }` | `{ ok: true }` |
 
 ---
 
@@ -199,3 +205,5 @@ In order:
 **2026-07-11.** Council PRE-BUILD (CONDITIONAL GO) — locked 7 adjustments: primary audience framing (CSE students as voice target, open access), de-frictioned signup (localStorage-first), teaser visibility for CV/interview-prep tracks, role-based admin auth (not hardcoded email), Upstash rate limiting on auth routes, tier-ready schema for future monetization.
 
 **2026-07-11.** Palette and Google Sans locked from Fahim's personal-website DESIGN_GUIDE.md (academic-line system, shared with learnBEE/LearnDE). Google Sans self-hosted via supplied OFL-licensed font files, not a CDN reference.
+
+**2026-07-19.** Valley of Death audit run — code, auth, data wiring, brand, and copy all passed clean. Only finding: this file's API Routes table had drifted from the actual shipped architecture (documented 4 routes that were never built — curriculum/admin data is fetched directly via lib/ helpers, not API routes — and had a stale response shape for POST /api/progress with the PUT merge endpoint undocumented). Table corrected above to match the real code.
