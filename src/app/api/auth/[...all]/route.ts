@@ -14,7 +14,16 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  const ip = request.headers.get('x-forwarded-for') ?? 'anonymous'
+  // x-vercel-forwarded-for is set by Vercel's edge network to the real
+  // client IP and cannot be overridden by the client, unlike the plain
+  // x-forwarded-for header (which a client can prepend arbitrary values to
+  // before the request reaches Vercel, defeating rate limiting by rotating
+  // the header on every request). Fall back to x-forwarded-for only for
+  // local dev, where neither header reflects a real spoofing risk.
+  const ip =
+    request.headers.get('x-vercel-forwarded-for') ??
+    request.headers.get('x-forwarded-for') ??
+    'anonymous'
   const { success } = await authRateLimit.limit(ip)
 
   if (!success) {
