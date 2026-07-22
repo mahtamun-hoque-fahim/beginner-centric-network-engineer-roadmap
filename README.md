@@ -1,5 +1,9 @@
 # Network Engineer Roadmap
 
+![Version](https://img.shields.io/github/v/release/mahtamun-hoque-fahim/beginner-centric-network-engineer-roadmap?style=flat-square&color=3df49a)
+![License](https://img.shields.io/github/license/mahtamun-hoque-fahim/beginner-centric-network-engineer-roadmap?style=flat-square)
+![Stars](https://img.shields.io/github/stars/mahtamun-hoque-fahim/beginner-centric-network-engineer-roadmap?style=flat-square)
+
 An interactive, scenario-based network engineering roadmap and progress tracker for CSE students (open to anyone), with user and admin dashboards.
 
 ## Stack
