@@ -2,6 +2,8 @@ import { requireAdmin } from '@/lib/auth/session'
 import { AdminNav } from '@/components/sections/admin-nav'
 import { MobileDrawer } from '@/components/ui/mobile-drawer'
 
+export const metadata = { robots: { index: false, follow: false } }
+
 export default async function AdminLayout({
   children,
 }: {

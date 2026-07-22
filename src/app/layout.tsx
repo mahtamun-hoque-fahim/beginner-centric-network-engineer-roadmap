@@ -28,6 +28,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${googleSans.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Network Engineer Roadmap',
+              url: process.env.NEXT_PUBLIC_APP_URL,
+            }),
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   )

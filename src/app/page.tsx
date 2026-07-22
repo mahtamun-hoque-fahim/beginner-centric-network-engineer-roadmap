@@ -1,6 +1,12 @@
 import Link from 'next/link'
 import { HeroBackground } from '@/components/ui/hero-background'
 
+export const metadata = {
+  title: 'Network Engineer Roadmap for CSE Students | Free & Interview-Ready',
+  description:
+    'A free, scenario-based roadmap that takes CSE students from zero networking knowledge to interview-ready — no lectures, no gatekeeping.',
+}
+
 export default function HomePage() {
   return (
     <main className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">

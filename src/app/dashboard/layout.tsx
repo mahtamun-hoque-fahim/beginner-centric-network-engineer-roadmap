@@ -2,6 +2,8 @@ import { requireUser } from '@/lib/auth/session'
 import { DashboardNav } from '@/components/sections/dashboard-nav'
 import { MobileDrawer } from '@/components/ui/mobile-drawer'
 
+export const metadata = { robots: { index: false, follow: false } }
+
 export default async function DashboardLayout({
   children,
 }: {
