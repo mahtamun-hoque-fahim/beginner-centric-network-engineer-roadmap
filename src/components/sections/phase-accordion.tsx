@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { useLocalProgress } from '@/lib/hooks/use-local-progress'
 import { getRandomQuote } from '@/lib/quotes'
+import { phaseIntros } from '@/lib/phase-intros'
 import { TaskRow } from '@/components/ui/task-row'
 import { QuoteToast } from '@/components/ui/quote-toast'
 
@@ -69,6 +70,11 @@ export function PhaseAccordion({ phases }: { phases: Phase[] }) {
                   <h2 className="text-xl font-semibold text-text">{phase.title}</h2>
                   {phase.description && (
                     <p className="text-text-muted text-sm mt-1">{phase.description}</p>
+                  )}
+                  {phaseIntros[phase.id] && (
+                    <p className="text-text-muted text-sm mt-3 max-w-2xl">
+                      {phaseIntros[phase.id]}
+                    </p>
                   )}
                   <p
                     className="text-text-faint text-xs mt-2"
